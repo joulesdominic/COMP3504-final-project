@@ -14,3 +14,5 @@ To run the application locally:
    `git clone https://github.com/COMP3504-final-project`
 2. Start the app:  
    `node src/server.js`
+
+   api: http://localhost:3000/
