@@ -1,10 +1,14 @@
+const dotenv = require('dotenv');
+
 const express = require('express');
 const supabase = require('@supabase/supabase-js');
+
+dotenv.config();
 
 const app = express();
 
 const supaUrl ='https://itfamvdbuksankotplyv.supabase.co';
-const supaKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0ZmFtdmRidWtzYW5rb3RwbHl2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0MzAyMzQsImV4cCI6MjA0ODAwNjIzNH0.rJSF00tMfRqIBdO687fH3DRDq_4bI0h6muArnUFOx5w';
+const supaKey = process.env.SUPA_KEY;
 
 const supabaseClient = supabase.createClient(supaUrl, supaKey);
 
