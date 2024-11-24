@@ -1,0 +1,15 @@
+{
+  "name": "comp3504-final-project",
+  "version": "1.0.0",
+  "description": "StoryBook Customizer is a web application designed to allow parents to create personalized storybooks for their children. Users can customize predefined stories with their child’s name, age, and preferred topics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.1",
+    "express": "^4.21.1"
+  }
+}
