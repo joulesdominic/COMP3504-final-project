@@ -1,13 +1,8 @@
-// const dotenv = require('dotenv');
-// const express = require('express');
 import dotenv from 'dotenv';
 import express from 'express';
 import supabase from '@supabase/supabase-js';
 import bodyParser from 'body-parser';
-// const supabase = require('@supabase/supabase-js');
-// const bodyParser = require('body-parser');
 
-// const generateStoryRoute = require('./routes/generateStory');
 import generateStory from './routes/generateStory.js';
 
 dotenv.config();
