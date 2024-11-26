@@ -1,7 +1,9 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
+import express from 'express';
+import supabase from '@supabase/supabase-js';
+import bodyParser from 'body-parser';
 
-const express = require('express');
-const supabase = require('@supabase/supabase-js');
+import generateStory from './routes/generateStory.js';
 
 dotenv.config();
 
@@ -12,6 +14,7 @@ const supaKey = process.env.SUPA_KEY;
 
 const supabaseClient = supabase.createClient(supaUrl, supaKey);
 
+app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -28,6 +31,8 @@ app.get('/', async (req, res) => {
       res.json(data);
     }
   });
+
+app.use('/generate-story', generateStory);
 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
