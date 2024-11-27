@@ -22,7 +22,11 @@ app.use((req, res, next) => {
     next();
   });
 
-app.get('/', async (req, res) => {
+app.get('/', async(req, res) => {
+  res.status(200).send("Application is running!");
+})
+
+app.get('/books', async (req, res) => {
     const { data, error } = await supabaseClient.from('books').select('*');
     if (error) {
       console.error('Error fetching data:', error);
@@ -32,7 +36,7 @@ app.get('/', async (req, res) => {
     }
   });
 
-app.use('/generate-story', generateStory(supabaseClient));
+app.use('/books', generateStory(supabaseClient));
 
 // find by id
 app.get('/id/:id', async(req, res) => {
