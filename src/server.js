@@ -35,112 +35,44 @@ app.get('/', async (req, res) => {
 app.use('/generate-story', generateStory(supabaseClient));
 
 // find by id
-app.get('/id/:id', async (req, res) => {
-  const id = parseInt(req.params.id, 10); // Extract the ID from the URL and convert to integer
-  try {
-      const { data, error } = await supabaseClient
-          .from('books')
-          .select('*')
-          .eq('id', id); // Perform an exact match on the `id` column
+app.get('/id/:id', async(req, res) => {
+  let id = req.params.id;
+  const query = supabaseClient.from('books').select('*').eq('id',id);
+  const { data } = await query;
+  res.status(200).send(JSON.stringify(data)).end();
+})
 
-      if (error) throw error;
-      if (data.length === 0) {
-          res.status(404).json({ error: 'No story found for this ID' });
-      } else {
-          res.json(data[0]); // Return the matching story
-      }
-  } catch (error) {
-      console.error('Error fetching story by ID:', error.message);
-      res.status(500).json({ error: 'Failed to fetch story' });
-  }
-});
 
 // route for child name
-// ex. http://localhost:3000/child_name/Grayson
 app.get('/child_name/:name', async (req, res) => {
-  const childName = req.params.name; // Extract the child_name from the URL
-  try {
-      const { data, error } = await supabaseClient
-          .from('books')
-          .select('*')
-          .ilike('child_name', `%${childName}%`); // Perform a case-insensitive search
-
-      if (error) throw error;
-      if (data.length === 0) {
-          res.status(404).json({ error: 'No stories found for this child name' });
-      } else {
-          res.json(data); // Return the matching stories
-      }
-  } catch (error) {
-      console.error('Error fetching stories by child_name:', error.message);
-      res.status(500).json({ error: 'Failed to fetch stories' });
-  }
+  let name = req.params.name;
+  const query = supabaseClient.from('books').select('*').ilike('child_name', `%${name}%`);
+  const { data } = await query;
+  res.status(200).send(JSON.stringify(data)).end();
 });
 
 // route for title
-// /title/:title
 app.get('/title/:title', async (req, res) => {
-  const title = req.params.title; // Extract the title from the URL
-  try {
-      const { data, error } = await supabaseClient
-          .from('books')
-          .select('*')
-          .ilike('title', `%${title}%`); // Perform a case-insensitive search
-
-      if (error) throw error;
-      if (data.length === 0) {
-          res.status(404).json({ error: 'No stories found for this title' });
-      } else {
-          res.json(data); // Return the matching stories
-      }
-  } catch (error) {
-      console.error('Error fetching stories by title:', error.message);
-      res.status(500).json({ error: 'Failed to fetch stories' });
-  }
+  let title = req.params.title;
+  const query = supabaseClient.from('books').select('*').ilike('title', `%${title}%`);
+  const { data } = await query;
+  res.status(200).send(JSON.stringify(data)).end();
 });
 
 // route for genre
-// /genre/:genre
 app.get('/genre/:genre', async (req, res) => {
-  const genre = req.params.genre; // Extract the genre from the URL
-  try {
-      const { data, error } = await supabaseClient
-          .from('books')
-          .select('*')
-          .ilike('genre', `%${genre}%`); // Perform a case-insensitive search
-
-      if (error) throw error;
-      if (data.length === 0) {
-          res.status(404).json({ error: 'No stories found for this genre' });
-      } else {
-          res.json(data); // Return the matching stories
-      }
-  } catch (error) {
-      console.error('Error fetching stories by genre:', error.message);
-      res.status(500).json({ error: 'Failed to fetch stories' });
-  }
+  let genre = req.params.genre;
+  const query = supabaseClient.from('books').select('*').ilike('genre', `%${genre}%`);
+  const { data } = await query;
+  res.status(200).send(JSON.stringify(data)).end();
 });
 
 // route for topic
-// /topic/:topic
 app.get('/topic/:topic', async (req, res) => {
-  const topic = req.params.topic; // Extract the topic from the URL
-  try {
-      const { data, error } = await supabaseClient
-          .from('books')
-          .select('*')
-          .ilike('topic', `%${topic}%`); // Perform a case-insensitive search
-
-      if (error) throw error;
-      if (data.length === 0) {
-          res.status(404).json({ error: 'No stories found for this topic' });
-      } else {
-          res.json(data); // Return the matching stories
-      }
-  } catch (error) {
-      console.error('Error fetching stories by topic:', error.message);
-      res.status(500).json({ error: 'Failed to fetch stories' });
-  }
+  let topic = req.params.topic;
+  const query = supabaseClient.from('books').select('*').ilike('topic', `%${topic}%`);
+  const { data } = await query;
+  res.status(200).send(JSON.stringify(data)).end();
 });
 
 app.listen(3000, () => {
