@@ -20,10 +20,10 @@ To run the application locally:
 5. Start the app:  
    `node src/server.js`  
 
-   endpoints:  
+   example endpoints:  
    http://localhost:3000/  
    http://localhost:3000/id/1  
    http://localhost:3000/child_name/Grayson  
-   http://localhost:3000/title/The%20Magical%20Drummer  
-   http://localhost:3000/genre/cooking  
-   http://localhost:3000/topic/superheroes
+   http://localhost:3000/books?title=The%20Magical%20Drummer  
+   http://localhost:3000/books?genre=cooking  
+   http://localhost:3000/books?topic=superheroes    
