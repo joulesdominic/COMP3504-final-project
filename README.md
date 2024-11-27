@@ -15,11 +15,15 @@ To run the application locally:
    `npm install @supabase/supabase-js`
 4. Set up environment:  
    Create a .env file in the root directory with the following:  
-   `SUPABASE_URL=<your-supabase-url>`  
-   `SUPABASE_ANON_KEY=<your-supabase-anon-key>`
-
+   `SUPA_KEY=<insert-key-here>`  
+   `GROQ_API_KEY=g<insert-key-here>`  
 5. Start the app:  
-   `node src/server.js`
+   `node src/server.js`  
 
-   api: http://localhost:3000/
-        
+   endpoints:  
+   http://localhost:3000/  
+   http://localhost:3000/id/1  
+   http://localhost:3000/child_name/Grayson  
+   http://localhost:3000/title/The Magical Drummer  
+   http://localhost:3000/genre/cooking  
+   http://localhost:3000/topic/superheroes
