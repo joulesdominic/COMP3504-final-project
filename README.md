@@ -13,9 +13,9 @@ To run the application locally:
 2. Install dependencies:
    `npm install`  
    `npm install @supabase/supabase-js`
-4. Set up environment:
-   Create a .env file in the root directory with the following:
-   `SUPABASE_URL=<your-supabase-url>`
+4. Set up environment:  
+   Create a .env file in the root directory with the following:  
+   `SUPABASE_URL=<your-supabase-url>`  
    `SUPABASE_ANON_KEY=<your-supabase-anon-key>`
 
 5. Start the app:  
