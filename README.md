@@ -26,4 +26,3 @@ To run the application locally:
    http://localhost:3000/books/search?child_name=Grayson  
    http://localhost:3000/books/search?title=The%20Magical%20Drummer  
    http://localhost:3000/books/search?genre=cooking  
-   http://localhost:3000/books/search?topic=superheroes    
