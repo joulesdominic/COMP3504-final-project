@@ -24,6 +24,6 @@ To run the application locally:
    http://localhost:3000/  
    http://localhost:3000/id/1  
    http://localhost:3000/child_name/Grayson  
-   http://localhost:3000/title/The Magical Drummer  
+   http://localhost:3000/title/The%20Magical%20Drummer  
    http://localhost:3000/genre/cooking  
    http://localhost:3000/topic/superheroes
