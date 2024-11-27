@@ -10,7 +10,7 @@ StoryBook Customizer is a web application designed to allow parents to create pe
 To run the application locally:
 1. Clone the repository:  
    `git clone https://github.com/COMP3504-final-project`
-2. Install dependencies:
+2. Install dependencies:  
    `npm install`  
    `npm install @supabase/supabase-js`
 4. Set up environment:  
