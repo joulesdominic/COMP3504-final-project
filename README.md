@@ -22,8 +22,8 @@ To run the application locally:
 
    example endpoints:  
    http://localhost:3000/  
-   http://localhost:3000/id/1  
-   http://localhost:3000/child_name/Grayson  
-   http://localhost:3000/books?title=The%20Magical%20Drummer  
-   http://localhost:3000/books?genre=cooking  
-   http://localhost:3000/books?topic=superheroes    
+   http://localhost:3000/books/id/1  
+   http://localhost:3000/books/search?child_name/Grayson  
+   http://localhost:3000/books/search?title=The%20Magical%20Drummer  
+   http://localhost:3000/books/search?genre=cooking  
+   http://localhost:3000/books/search?topic=superheroes    
