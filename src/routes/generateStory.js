@@ -4,7 +4,7 @@ import { getGroqChatCompletion } from '../services/generate.js';
 const generateStory = (supabaseClient) => {
    const router = express.Router();
 
-   router.post('/', async (req, res) => {
+   router.post('/books', async (req, res) => {
       const { name, age, topic, genre } = req.body;
 
       if (!name || !age || !topic || !genre) {  
