@@ -6,7 +6,6 @@ const booksRoute = (supabaseClient) => {
     router.get('/books', async (req, res) => {
         try {
             const records = await supabaseClient.from('books').select('*');
-
             res.status(200).send(records.data);
         } catch(e) {
             console.error('Error fetching records:', e);
@@ -60,6 +59,82 @@ const booksRoute = (supabaseClient) => {
         } catch(e) {
             console.error('Error fetching records:', e);
             res.status(500).send({ error: 'An error occurred while fetching records.' });
+        }
+    });
+
+    router.put('/books/copy', async(req, res) => {
+        const { id, child_name, child_age, title, genre, topic, story} = req.body;
+
+        try {
+            const { data: originalRecord, error: fetchError } = await supabaseClient.from('books').select('*').eq('id', id).single();
+
+            if (fetchError || !originalRecord) {
+                return res.status(404).json({ error: 'Original record not found'});
+            }
+
+            const newRecord = {
+                ...originalRecord,
+                child_name: child_name || originalRecord.child_name,
+                child_age: child_age || originalRecord.child_age,
+                title: title || originalRecord.title,
+                genre: genre || originalRecord.genre,
+                topic: topic || originalRecord.topic,
+                story: story || originalRecord.story,
+                id: undefined,
+            };
+
+            const { data: insertedRecord, error: insertError } = await supabaseClient.from('books').insert([newRecord]);
+
+            if(insertError) {
+                throw insertError;
+            }
+
+            res.status(201).json({ message: 'Record duplicated and updated successfully', record: insertedRecord});
+        } catch(e) {
+            console.log('Error duplicating record: ', e);
+            res.status(500).json({ error: 'An error occured while duplicating record'});
+        }
+    });
+
+    router.put('/books/:id', async (req, res) => {
+        const { id } = req.params;
+        const { child_name, child_age, genre, topic, story } = req.body;
+    
+        try {
+            const { data: existingRecord, error: fetchError } = await supabaseClient
+                .from('books')
+                .select('*')
+                .eq('id', id)
+                .single();
+    
+            if (fetchError || !existingRecord) {
+                return res.status(404).json({ error: 'Book with the specified title not found.' });
+            }
+    
+            // Prepare the updated record
+            const updatedRecord = {
+                ...existingRecord,
+                child_name: child_name || existingRecord.child_name,
+                child_age: child_age || existingRecord.child_age,
+                genre: genre || existingRecord.genre,
+                topic: topic || existingRecord.topic,
+                story: story || existingRecord.story,
+            };
+    
+            // Update the record in the database
+            const { data: updatedData, error: updateError } = await supabaseClient
+                .from('books')
+                .update(updatedRecord)
+                .eq('id', id);
+    
+            if (updateError) {
+                throw updateError;
+            }
+    
+            res.status(200).json({ message: 'Book updated successfully.', record: updatedRecord });
+        } catch (e) {
+            console.error('Error updating book:', e);
+            res.status(500).json({ error: 'An error occurred while updating the book.' });
         }
     });
     
