@@ -1,56 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import SearchBook from './components/SearchBook';
+import BookList from './components/BookList';
 
 function App() {
-  const [backendData, setBackendData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('/books')
-      .then(response => {
-        if(!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(data => {
-        setBackendData(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
-  if(loading) {
-    return <div>Loading...</div>;
-  }
-
-  if(error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  return(
+  return (
     <div>
-      <h1>Books List</h1>
-      {backendData.length > 0 ? (
-        <ul>
-          {backendData.map((book) => (
-            <li key={book.id} style={{ marginBottom: '20px' }}>
-              <h2>{book.title}</h2>
-              <p><strong>Author:</strong> {book.child_name} (Age: {book.child_age})</p>
-              <p><strong>Genre:</strong> {book.genre}</p>
-              <p><strong>Topic:</strong> {book.topic}</p>
-              <p><strong>Story:</strong> {book.story}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No books available.</p>
-      )}
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/books">Book List</Link>
+        <Link to="/books/search">Search Books</Link>
+      </nav>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/books' element={<BookList />} />
+        <Route path='/books/search' element={<SearchBook />} />
+      </Routes>
     </div>
   )
 }
 
-export default App
+export default App;
