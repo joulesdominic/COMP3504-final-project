@@ -54,7 +54,7 @@ const booksRoute = (supabaseClient) => {
         const id = req.params.id;
 
         try {
-            const records = await supabaseClient.from('books').select('*').eq('id', id);
+            const records = await supabaseClient.from('books').select('*').eq('id', id).single();
             
             res.status(200).send(records.data);
         } catch(e) {
