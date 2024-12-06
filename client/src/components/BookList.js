@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchBooks } from '../services/api.js';
 
+import '../index.css';
+
 function BookList() {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);

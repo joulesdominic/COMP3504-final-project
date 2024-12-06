@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import SearchBook from './components/SearchBook';
 import BookList from './components/BookList';
+import './index.css';
 
 function App() {
   return (

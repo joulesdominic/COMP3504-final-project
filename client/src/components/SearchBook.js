@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { searchBooks, fetchBooks, searchBookById } from '../services/api.js';
 
+import '../index.css';
+
 function SearchBook() {
     const [searchParams, setSearchParams] = useState({
         id: '',
