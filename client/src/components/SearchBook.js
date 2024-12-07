@@ -81,9 +81,9 @@ function SearchBook() {
     };
 
     return (
-        <div>
+        <div className='max-w-4x1 mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
             <h1>Search Books</h1>
-            <form onSubmit={handleSearch}>
+            <form className='flex flex-col space-y-4 bg=white p-6 rounged-lg shadow-sm' onSubmit={handleSearch}>
                 <label>Search by ID:</label>
                 <input 
                     type='text'
@@ -92,6 +92,7 @@ function SearchBook() {
                     placeholder='Enter book ID'
                     value={searchParams.id}
                     onChange={handleChange}
+                    className='w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2'
                 />
 
                 <label>Enter name:</label>
@@ -102,6 +103,7 @@ function SearchBook() {
                     placeholder='Enter name'
                     value={searchParams.child_name}
                     onChange={handleChange}
+                    className='w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2'
                 />
 
                 <label>Enter age:</label>
@@ -112,6 +114,7 @@ function SearchBook() {
                     placeholder='Enter age'
                     value={searchParams.child_age}
                     onChange={handleChange}
+                    className='w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2'
                 />
 
                 <label>Enter title:</label>
@@ -122,6 +125,7 @@ function SearchBook() {
                     placeholder='Enter title'
                     value={searchParams.title}
                     onChange={handleChange}
+                    className='w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2'
                 />
 
                 <lable>Enter genre:</lable>
@@ -132,9 +136,10 @@ function SearchBook() {
                     placeholder='Enter Genre'
                     value={searchParams.genre}
                     onChange={handleChange}
+                    className='w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none p-2'
                 />
-                <input type='submit'/>
-                <button type='button' onClick={handleReset}>Reset</button>
+                <input type='submit' className='px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors shadow-sm'/>
+                <button type='button' onClick={handleReset} className='px-4 py-2 bg-gray-500 text-white font-medium rounded-lg hover:bg-gray-600 transition-colors shadow-sm'>Reset</button>
             </form>
 
             {error && <div style={{ color: 'red' }}>Error: {error}</div>}
@@ -142,15 +147,15 @@ function SearchBook() {
                 <p>No books are currently available in the database.</p>
             )}
             {allBooksExist && searchResults.length > 0 && (
-                <ul>
+                <ul className='space-y-6 mt-6'>
                     {searchResults.map((book) => (
                         <li key={book.id}>
-                            <h2>{book.title}</h2>
-                            <p><strong>Name:</strong> {book.child_name}</p>
-                            <p><strong>Age:</strong> {book.child_age}</p>
-                            <p><strong>Genre:</strong> {book.genre}</p>
-                            <p><strong>Topic:</strong> {book.topic}</p>
-                            <p><strong>Story:</strong> {book.story}</p>
+                            <h2 className='text-xl font-semibold text-gray-800 mb-2'>{book.title}</h2>
+                            <p className='text-gray-600'><strong>Name:</strong> {book.child_name}</p>
+                            <p className='text-gray-600'><strong>Age:</strong> {book.child_age}</p>
+                            <p className='text-gray-600'><strong>Genre:</strong> {book.genre}</p>
+                            <p className='text-gray-600'><strong>Topic:</strong> {book.topic}</p>
+                            <p className='text-gray-600'><strong>Story:</strong> {book.story}</p>
                         </li>
                     ))}
                 </ul>
