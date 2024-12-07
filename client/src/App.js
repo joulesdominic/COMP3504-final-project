@@ -13,7 +13,7 @@ function App() {
         <Link to="/" className="text-white font-medium hover:underline">Home</Link>
         <Link to="/books" className="text-white font-medium hover:underline">Book List</Link>
         <Link to="/books/search" className="text-white font-medium hover:underline">Search Books</Link>
-        <Link to="/books/generate">Generate Story</Link>
+        <Link to="/books/generate" className='text-white font-medium hover:underline'>Generate Story</Link>
       </nav>
 
       <Routes>
