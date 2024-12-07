@@ -29,17 +29,17 @@ function BookList() {
     }
 
     return(
-        <div>
+        <div className='max-w-4x1 mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
             <h1>Books List</h1>
             {books.length > 0 ? (
-                <ul>
+                <ul className='space-y-6 mt-6'>
                     {books.map((book) => (
-                        <li key={book.id} style={{ marginBottom: '20px'}}>
-                            <h2>{book.title}</h2>
-                            <p><strong>Name:</strong> {book.child_name}</p>
-                            <p><strong>Genre:</strong> {book.genre}</p>
-                            <p><strong>Topic:</strong> {book.topic}</p>
-                            <p><strong>Story:</strong> {book.story}</p>
+                        <li key={book.id} style={{ marginBottom: '20px'}} className='bg-white p-6 rounded-lg shadow-sm border border-gray-200'>
+                            <h2 className='text-x1 font-semibold text-gray-900 mb-2'>{book.title}</h2>
+                            <p className="text-gray-600"><strong>Name:</strong> {book.child_name}</p>
+                            <p className="text-gray-600"><strong>Genre:</strong> {book.genre}</p>
+                            <p className="text-gray-600"><strong>Topic:</strong> {book.topic}</p>
+                            <p className="text-gray-600"><strong>Story:</strong> {book.story}</p>
                         </li>
                     ))}
                 </ul>
