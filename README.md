@@ -12,7 +12,13 @@ To run the application locally:
    `git clone https://github.com/COMP3504-final-project`
 2. Install dependencies:  
    `npm install`  
-   `npm install @supabase/supabase-js`
+   `npm install @supabase/supabase-js`  
+   `npm install dotenv`
+   `npm install express`
+   `npm install groq-sdk`
+   `npm install react-scripts`
+   `npm install react-router-dom`
+   `npm install web-vitals`  
 4. Set up environment:  
    Create a .env file in the root directory with the following:  
    `SUPA_KEY=<insert-key-here>`  
