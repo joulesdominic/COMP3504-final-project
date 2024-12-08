@@ -5,6 +5,7 @@ StoryBook Customizer is a web application designed to allow parents to create pe
 
 ## Technologies
 - JavaScript (React)
+- Tailwind (CSS)
 
 ## Installation
 To run the application locally:
@@ -13,18 +14,14 @@ To run the application locally:
 2. Install dependencies:  
    `npm install`  
    `npm install @supabase/supabase-js`  
-   `npm install dotenv`  
-   `npm install express`  
    `npm install groq-sdk`  
-   `npm install react-scripts`  
-   `npm install react-router-dom`  
-   `npm install web-vitals`  
 4. Set up environment:  
    Create a .env file in the root directory with the following:  
    `SUPA_KEY=<insert-key-here>`  
    `GROQ_API_KEY=g<insert-key-here>`  
 5. Start the app:  
-   `node src/server.js`  
+   `cd client/public`
+   `npm start`  
 
    example endpoints:  
    http://localhost:3000/  
