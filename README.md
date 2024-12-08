@@ -20,7 +20,7 @@ To run the application locally:
    `SUPA_KEY=<insert-key-here>`  
    `GROQ_API_KEY=g<insert-key-here>`  
 5. Start the app:  
-   `cd client/public`
+   `cd client/public`  
    `npm start`  
 
    example endpoints:  
