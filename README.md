@@ -31,10 +31,10 @@ To run the application locally:
 
    Inside you will see:
    
-   `#SUPA_KEY=<insert-key-here>`  
-   `#GROQ_API_KEY=g<insert-key-here>`
+   `SUPA_KEY=<insert-key-here>`  
+   `GROQ_API_KEY=<insert-key-here>`
 
-   Make sure to uncomment the values. Then insert the appropriate keys after the `=` symbol.
+   Insert the appropriate keys after the `=` symbol.
    
 8. Start the app:
 
