@@ -28,7 +28,6 @@ const generateStory = (supabaseClient) => {
          });
 
          if (error) {
-         console.error('Error inserting data:', error);
          res.status(500).json({ error: 'Failed to insert data' });
          } else {
          res.status(200).json(book);
